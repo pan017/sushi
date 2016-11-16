@@ -1,0 +1,31 @@
+﻿@model List<MvcApplication38.Models.Sushi>
+
+@{
+    ViewBag.Title = "Список товаров";
+}
+
+<div id="content">
+    <h2>Список товаров</h2>
+
+    <p>
+        @Html.ActionLink("Назад в меню", "Index", "AdminMenu")
+    </p>
+    @foreach (var item in Model)
+    {
+
+        <div class="item">
+            <img src='@item.Photo' width="200" height="200" />
+            <h3>@item.Name</h3>
+            Состав: @item.Composition <br />
+            @item.Colorie
+            <h4>@item.Price.ToString("c")</h4>
+            <button name="add" type="button" value="" onclick="location.href='@Url.Action( "EditItem", "AdminMenu", new { id = item.SushiId})'">
+                Редактировать
+            </button>
+            <button name="add" type="button" value="" onclick="location.href='@Url.Action("DeleteItem", "AdminMenu", new { id = item.SushiId})'">
+                Удалить
+            </button>
+        </div>
+    }
+
+</div>

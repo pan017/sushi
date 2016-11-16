@@ -1,0 +1,50 @@
+﻿@model List<MvcApplication38.Models.Staff>
+
+@{
+    ViewBag.Title = "Список сотрудников";
+}
+<div id="content">
+    <h2>Список сотрудников</h2>
+    <p>
+        @Html.ActionLink("Назад в меню", "Index", "AdminMenu")
+    </p>
+    <table id="cartTable">
+        <thead>
+            <tr>
+                <th>ФИО</th>
+                <th>Адрес</th>
+                <th>Телефон</th>
+                <th>Вид доставки</th>
+                <th>Номер договора</th>
+                <th>Действие</th>
+            </tr>
+        </thead>
+        <tbody>
+
+
+            @foreach (var item in Model)
+            {
+
+                <tr>
+                    <td>@item.Name</td>
+                    <td>@item.Adres</td>
+                    <td>@item.Phone</td>
+                    <td>@item.Type</td>
+                    <td>@item.Dog</td>
+                    <td>
+                        <a href="/AdminMenu/DelStaff?id=@item.Id">Уволить</a>
+                        <a href="/AdminMenu/EditStaff?id=@item.Id">Редактировать</a>
+                        @*@Html.ActionLink("Уволить", "DeleteStaff", "AdminMenu", new {id = item.Id}, null)
+                        @Html.ActionLink("Редактировать", "EditStaff", "AdminMenu", new { id = item.Id }, null)*@
+                    
+                    </td>
+                </tr>
+
+            }
+        </tbody>
+        <tfoot>
+            
+        </tfoot>
+    </table>
+</div>
+

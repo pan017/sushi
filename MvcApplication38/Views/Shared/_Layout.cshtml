@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="~/Content/Styles.css" rel="stylesheet" />
+    <script src="/Scripts/jquery-2.2.3.js"></script>
+    <style type="text/css" media="print">
+        div.no_print {
+            display: none;
+        }
+
+        div.print {
+            display: block;
+        }
+    </style> 
+    <title>Sushi Room - интернет-магазин суши - @ViewBag.Title </title>
+</head>
+<body>
+    <div id="header" role="navigation" class="no_print">
+
+        @Html.Action("Summary", "Cart")
+        <div class="title no_print">
+            Sushi Room - интернет-магазин суши
+        </div>
+        
+    </div>
+
+    <div class="visible-xs no_print">
+
+    </div>
+    <div id="categories" class="no_print">
+        <a href="/">Главная</a>
+
+        <a href="/Home/Filter?Query=Гунканы">Гунканы</a>
+        <a href="/Home/Filter?Query=Маки">Маки</a>
+        <a href="/Home/Filter?Query=Нигири">Нигири</a>
+        <a href="/Home/Filter?Query=СушиРрито">СушиРрито</a>
+    </div>
+    <div class="row panel">
+        <div id="genres" class="col-sm-3 hidden-xs no_print">
+
+        </div>
+        <div class="print">
+            @RenderBody()
+        </div>
+    </div>
+    <div align="left">
+        <b>
+            Обратная связь:
+            <br>
+            Справочная служба-80255248590
+        </b>
+        <br>
+
+
+        <img src="/Photos/povar.png" width="50" height="50" />
+    </div>
+    </div>
+</body>
+</html>

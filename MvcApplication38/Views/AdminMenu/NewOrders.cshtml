@@ -1,0 +1,43 @@
+﻿@model List<MvcApplication38.Models.ViewOrderModel>
+
+@{
+    ViewBag.Title = "Новые заказы";
+}
+<div id="content">
+    <h2>Новые заказы</h2>
+    <p>
+        @Html.ActionLink("Назад в меню", "Index", "AdminMenu")
+    </p>
+    <table id="cartTable">
+        <thead>
+            <tr>
+                <th>ФИО</th>
+               
+               
+                <th>Заказ</th>
+                <th>Стоимость</th>
+                <th>Действие</th>
+            </tr>
+        </thead>
+        <tbody>
+
+
+            @foreach (var item in Model)
+            {
+
+                <tr>
+                    <td>@item.Name</td>
+                    
+                    <td>@item.Order<td>
+                    
+                    <td>@item.Cost руб.</td>
+                    <td>@Html.ActionLink("Подробнее", "ViewOrder", "AdminMenu", new { OrderId = item.Id }, null)</td>
+                </tr>
+
+            }
+        </tbody>
+        <tfoot>
+
+        </tfoot>
+    </table>
+</div>

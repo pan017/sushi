@@ -1,0 +1,49 @@
+﻿@model List<MvcApplication38.Models.ViewOrderModel>
+
+@{
+    ViewBag.Title = "Обработанные заказы";
+}
+<div id="content">
+    <h2>Обработанные заказы</h2>
+    <p>
+        <div class="no_print" style="position:absolute; margin-left:500px;"><img src="~/Content/w128h1281338911384print.png" width="25px" onclick="window.print()" /></div>
+        <div class="no_print"> @Html.ActionLink("Назад в меню", "Index", "AdminMenu") </div>
+    </p>
+    
+    <table id="cartTable">
+        <thead>
+            <tr>
+                <th>ФИО</th>
+
+
+                <th>Заказ</th>
+                <th>Стоимость</th>
+                <th><div class="no_print">Действие</div></th>
+            </tr>
+        </thead>
+        <tbody>
+
+
+            @foreach (var item in Model)
+            {
+
+                <tr>
+                    <td>@item.Name</td>
+
+                    <td>@item.Order
+
+
+                    <td>@item.Cost руб.</td>
+                    <td><div class="no_print"> @Html.ActionLink("Подробнее", "ViewOrder", "AdminMenu", new { OrderId = item.Id }, null) </div></td>
+                </tr>
+
+            }
+        </tbody>
+        <tfoot>
+
+        </tfoot>
+    </table>
+
+
+
+</div>

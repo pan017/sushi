@@ -1,0 +1,25 @@
+﻿@model MvcApplication38.Models.Client
+
+@{
+    ViewBag.Title = "Меню администратора";
+}
+<div id="content">
+    <h2>Меню администратора</h2>
+    <p>
+    @Html.ActionLink("Новые заказы", "NewOrders", "AdminMenu")</p>
+    <p>
+        @Html.ActionLink("Отправленные заказы", "OldOrders", "AdminMenu")</p>
+    <p>
+        @Html.ActionLink("Список клиентов", "Clients", "AdminMenu")</p>
+    <p>
+        @Html.ActionLink("Новый товар", "Orders", "AdminMenu")</p>
+    <p>
+        @Html.ActionLink("Список товаров", "ProductList", "AdminMenu")</p>
+    <p>
+        @Html.ActionLink("Сотрудники", "StaffList", "AdminMenu")</p>
+    <p>
+         @Html.ActionLink("Новый сотрудник", "NewStaff", "AdminMenu")</p>
+    <p>
+        @Html.ActionLink("Выручка", "Proceeds", "AdminMenu")
+    </p>
+</div>

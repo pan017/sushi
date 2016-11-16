@@ -1,0 +1,35 @@
+﻿@model MvcApplication38.Models.LoginModel
+
+@{
+    ViewBag.Title = "Вход в панель администратора";
+}
+<div id="content">
+    @using (Html.BeginForm("Login", "AdminMenu"))
+    {
+        
+        
+<h2>Вход в панель администратора</h2>
+        @Html.ValidationMessage("ErrorLogin")
+        <table align="center" style="position:absolute; margin-left:300px; color:white;" id="find_box">
+            <tr>
+                <td>@Html.TextBoxFor(model => model.Login)</td>
+                <td style="color:black;">Логин</td>
+
+            </tr>
+            <tr>
+                <td>@Html.PasswordFor(model => model.Password)</td>
+                <td style="color:black;">Пароль</td>
+
+            <tr>
+                <td align="right"><input type="submit" class="submit_btn" id="submit_btn" title="Вход" value="Вход" /></td>
+            </tr>
+        </table>
+    }
+    <br />
+    <br />
+    <br />
+    <br /><br />
+<br />
+<br />
+<br />
+</div>

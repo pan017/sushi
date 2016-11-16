@@ -1,0 +1,49 @@
+﻿@model MvcApplication38.Models.ProceedsModel
+
+@{
+    ViewBag.Title = "Расчет выручки";
+}
+
+<div id="content">
+    <h2>Расчет выручки</h2>
+
+    @using (Html.BeginForm("Proceeds", "AdminMenu", FormMethod.Post))
+    {
+        @Html.ValidationMessage("Error")
+        <p>
+            С:
+
+            @Html.TextBoxFor(m => m.BeginDay, null, new { @class = "datePicker" })
+        </p>
+        <p>
+            По:
+            @Html.TextBoxFor(m => m.EndDay, null, new { @class = "datePicker" })
+        </p>
+        <input type="submit" value="Рассчитать" />
+        if (Model.Money != 0)
+        {
+            <p>
+            Выручка:
+
+            @Model.Money
+        </p>
+        }
+        else
+        {
+            <script>
+
+    window.onload = function () {
+        var a = document.getElementById("BeginDay").value;
+        var b = a.indexOf(" ");
+        var c = a.substring(0, b);
+        document.getElementById("BeginDay").value = c;
+        var a1 = document.getElementById("EndDay").value;
+        var b1 = a1.indexOf(" ");
+        var c1 = a1.substring(0, b1);
+        document.getElementById("EndDay").value = c1;
+
+    }
+</script>
+        }
+}
+</div>

@@ -1,0 +1,13 @@
+﻿@model MvcApplication38.Models.Cart
+@{
+    ViewBag.Title = "Summary";
+}
+<div id="cartSummary">
+    <span class="caption">
+        <b>В корзине:</b>
+        <span id="ctl02_csQuantity">@Model.Lines.Count()</span> товаров,
+        <span id="ctl02_csTotal">@Model.ComputeTotalValue().ToString("# руб. ")</span>
+    </span>
+    <a href="/cart" id="ctl02_csLink">Корзина</a>
+
+</div>

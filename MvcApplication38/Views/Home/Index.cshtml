@@ -1,0 +1,46 @@
+﻿@model List< MvcApplication38.Models.Sushi>
+@{
+    ViewBag.Title = "Главная";
+}
+
+
+
+    <div>
+
+       
+            <div id="content">
+
+
+             @foreach (var item in Model)
+{
+
+                        <div class="item">
+                            <img src='@item.Photo' width="200" height="200" />
+                            <h3>@item.Name</h3>
+                            Состав: @item.Composition <br />
+                            @item.Colorie
+                            <h4>@item.Price.ToString("c")</h4>
+                            <button name="add" type="button" value="" onclick="location.href='@Url.Action( "AddToCart", "Cart", new { productId = item.SushiId, returnUrl = Request.Url.PathAndQuery })'">
+                                Добавить в корзину
+                            </button>
+                        </div>
+             }
+               
+            </div>
+           
+            <div class="pager">
+                
+
+               @*@{ for (int i = 1; i <= MaxPage; i++)
+                {
+                string path = RouteTable.Routes.GetVirtualPath(null, null,
+                new RouteValueDictionary() { { "page", i } }).VirtualPath;
+                Response.Write(
+                String.Format("<a href='{0}' {1}>{2}</a>",
+                path, i == CurrentPage ? "class='selected'" : "", i));
+                }
+                }*@
+
+               
+     
+    </div>

@@ -1,0 +1,56 @@
+﻿@model MvcApplication38.Models.ViewOrderModel
+
+@{
+    ViewBag.Title = "Просмотр сведений о заказе";
+}
+<div id="content" class="print">
+    <h2>Просмотр сведений о заказе</h2>
+    <p>
+        <div class="no_print" style="position:absolute; margin-left:500px;"><img src="~/Content/w128h1281338911384print.png" width="25px" onclick="window.print()" /></div>
+        <div class="no_print"> @Html.ActionLink("Назад в меню", "Index", "AdminMenu") </div>
+    </p>
+    
+    @using (Html.BeginForm("ViewOrder", "AdminMenu", FormMethod.Post))
+    {
+        <div style="display:none">
+            @Html.TextBoxFor(m => m.Id)
+
+        </div>
+    <p class="print">
+        <b>ФИО: </b>
+        @Model.Name
+    </p>
+
+        <p>
+            <b>Заказ: </b>
+            @Model.Order
+        </p>
+
+        <p>
+            <b>Адрес доставки: </b>
+            @Model.Adres
+        </p>
+        <p>
+            <b>Телефон: </b>
+            @Model.Phone
+        </p>
+        <p>
+            <b>Стоимость: </b>
+            @Model.Cost руб.
+        </p>
+
+        <p>
+            <b>Курьер: </b>
+            @if (Model.State)
+            {
+                @Model.Staff
+            }
+            else
+            {
+                @Html.DropDownListFor(m => m.Staff, ViewBag.staffList as SelectList)<br />
+           <input type="submit" title="Сохранить" />
+            }
+        </p>
+        
+    }
+</div>

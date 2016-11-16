@@ -1,0 +1,41 @@
+﻿@model MvcApplication38.Models.Staff
+
+@{
+    ViewBag.Title = "Новый сотрудник";
+}
+
+<div id="content">
+    <h2>Новый сотрудник</h2>
+    <p>
+        @Html.ActionLink("Назад в меню", "Index", "AdminMenu")
+    </p>
+    @using (Html.BeginForm("NewStaff", "AdminMenu", FormMethod.Post))
+    {
+      <table>
+        <tr>
+            <td>ФИО</td>
+            <td>@Html.TextBoxFor(model => model.Name)</td>
+        </tr>
+        <tr>
+            <td>Адрес</td>
+            <td>@Html.TextBoxFor(model => model.Adres)</td>
+        </tr>
+        <tr>
+            <td>Телефон</td>
+            <td>@Html.TextBoxFor(model => model.Phone)</td>
+        </tr>
+        <tr>
+            <td>Вид доставки</td>
+            <td>@Html.DropDownListFor(model => model.Type, ViewBag._type as SelectList)</td>
+        </tr>
+        <tr>
+            <td>Номер договора</td>
+            <td>@Html.TextBoxFor(model => model.Dog)</td>
+        </tr>
+            </table>
+        <br />
+        <input type="submit" value="Сохранить" />
+   }
+</div>
+
+

@@ -1,0 +1,40 @@
+﻿@model List<MvcApplication38.Models.Client>
+
+@{
+    ViewBag.Title = "Список клиентов";
+}
+<div id="content">
+    <h2>Список клиентов</h2>
+    <p>
+        @Html.ActionLink("Назад в меню", "Index", "AdminMenu")
+    </p>
+    <table id="cartTable">
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>ФИО</th>
+                <th>Телефон</th>
+                <th>Адрес</th>
+            </tr>
+        </thead>
+        <tbody>
+
+
+            @foreach (var line in Model)
+            {
+
+                <tr>
+                    <td>@line.ClientId</td>
+                    <td>@line.Name</td>
+                    <td>@line.Phone</td>
+                    <td>@line.City, @line.Adres</td>
+                    
+                </tr>
+
+            }
+        </tbody>
+        <tfoot>
+           
+        </tfoot>
+    </table>
+</div>
